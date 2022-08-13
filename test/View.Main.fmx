@@ -1,0 +1,139 @@
+object ViewMain: TViewMain
+  Left = 0
+  Top = 0
+  Caption = 'OSM Map'
+  ClientHeight = 628
+  ClientWidth = 1032
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  OnCreate = FormCreate
+  OnDestroy = FormDestroy
+  DesignerMasterStyle = 0
+  object Layout1: TLayout
+    Align = Client
+    HitTest = True
+    Size.Width = 752.000000000000000000
+    Size.Height = 628.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 1
+  end
+  object Layout2: TLayout
+    Align = Right
+    Position.X = 752.000000000000000000
+    Size.Width = 280.000000000000000000
+    Size.Height = 628.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 2
+    object ButtonZoomInc: TButton
+      Position.X = 8.000000000000000000
+      Position.Y = 169.000000000000000000
+      TabOrder = 2
+      Text = '+'
+      OnClick = ButtonZoomIncClick
+    end
+    object ButtonZoomDec: TButton
+      Position.X = 96.000000000000000000
+      Position.Y = 169.000000000000000000
+      TabOrder = 1
+      Text = '-'
+      OnClick = ButtonZoomDecClick
+    end
+    object CheckBoxAnimateZoom: TCheckBox
+      IsChecked = True
+      Position.X = 8.000000000000000000
+      Position.Y = 208.000000000000000000
+      TabOrder = 3
+      Text = #1040#1085#1080#1084#1072#1094#1080#1103' '#1079#1091#1084#1072
+      OnChange = CheckBoxAnimateZoomChange
+    end
+    object GroupBoxStorage: TGroupBox
+      Position.X = 8.000000000000000000
+      Position.Y = 8.000000000000000000
+      Size.Width = 265.000000000000000000
+      Size.Height = 145.000000000000000000
+      Size.PlatformDefault = False
+      Text = #1048#1089#1090#1086#1095#1085#1080#1082' '#1090#1072#1081#1083#1086#1074
+      TabOrder = 5
+      object RadioButtonTileNone: TRadioButton
+        GroupName = 'StorageTileGroup'
+        Position.X = 16.000000000000000000
+        Position.Y = 32.000000000000000000
+        TabOrder = 41
+        Text = 'None'
+        OnChange = RadioButtonTileNoneChange
+      end
+      object RadioButtonFile: TRadioButton
+        GroupName = 'StorageTileGroup'
+        Position.X = 16.000000000000000000
+        Position.Y = 59.000000000000000000
+        TabOrder = 40
+        Text = 'File'
+        OnChange = RadioButtonTileNoneChange
+      end
+      object RadioButtonSQLite: TRadioButton
+        GroupName = 'StorageTileGroup'
+        Position.X = 16.000000000000000000
+        Position.Y = 86.000000000000000000
+        TabOrder = 39
+        Text = 'SQLite'
+        OnChange = RadioButtonTileNoneChange
+      end
+      object RadioButtonServer: TRadioButton
+        GroupName = 'StorageTileGroup'
+        Position.X = 16.000000000000000000
+        Position.Y = 113.000000000000000000
+        Size.Width = 120.000000000000000000
+        Size.Height = 19.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 38
+        Text = 'Server'
+        OnChange = RadioButtonTileNoneChange
+      end
+    end
+    object GroupBoxLayer: TGroupBox
+      Position.X = 8.000000000000000000
+      Position.Y = 264.000000000000000000
+      Size.Width = 265.000000000000000000
+      Size.Height = 177.000000000000000000
+      Size.PlatformDefault = False
+      Text = #1054#1090#1086#1073#1088#1072#1078#1072#1077#1084#1099#1077' '#1089#1083#1086#1080
+      TabOrder = 4
+      object CheckBoxLayer1: TCheckBox
+        Position.X = 16.000000000000000000
+        Position.Y = 32.000000000000000000
+        TabOrder = 42
+        Text = #1057#1083#1086#1081' 1'
+        OnChange = CheckBoxLayer1Change
+      end
+      object CheckBoxLayer2: TCheckBox
+        Position.X = 16.000000000000000000
+        Position.Y = 59.000000000000000000
+        TabOrder = 41
+        Text = #1057#1083#1086#1081' 2'
+        OnChange = CheckBoxLayer1Change
+      end
+      object CheckBoxLayer3: TCheckBox
+        Position.X = 16.000000000000000000
+        Position.Y = 86.000000000000000000
+        TabOrder = 40
+        Text = #1057#1083#1086#1081' 3'
+        OnChange = CheckBoxLayer1Change
+      end
+      object CheckBoxLayer4: TCheckBox
+        Position.X = 16.000000000000000000
+        Position.Y = 113.000000000000000000
+        TabOrder = 39
+        Text = #1057#1083#1086#1081' 4'
+        OnChange = CheckBoxLayer1Change
+      end
+      object CheckBoxLayer5: TCheckBox
+        Position.X = 16.000000000000000000
+        Position.Y = 140.000000000000000000
+        TabOrder = 38
+        Text = #1057#1083#1086#1081' 5'
+        OnChange = CheckBoxLayer1Change
+      end
+    end
+  end
+end

@@ -1,0 +1,60 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{75CF65CD-AA4D-48B6-8E00-8CD19F32A6C7}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="FMXMapOsmDemo.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="Import\FMXMapOsmTileImportToSQLite.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="Import\FMXMapOsmTileLoaderBEL.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="FMXMapOsmDemo">
+        <MSBuild Projects="FMXMapOsmDemo.dproj"/>
+    </Target>
+    <Target Name="FMXMapOsmDemo:Clean">
+        <MSBuild Projects="FMXMapOsmDemo.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="FMXMapOsmDemo:Make">
+        <MSBuild Projects="FMXMapOsmDemo.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="FMXMapOsmTileImportToSQLite">
+        <MSBuild Projects="Import\FMXMapOsmTileImportToSQLite.dproj"/>
+    </Target>
+    <Target Name="FMXMapOsmTileImportToSQLite:Clean">
+        <MSBuild Projects="Import\FMXMapOsmTileImportToSQLite.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="FMXMapOsmTileImportToSQLite:Make">
+        <MSBuild Projects="Import\FMXMapOsmTileImportToSQLite.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="FMXMapOsmTileLoaderBEL">
+        <MSBuild Projects="Import\FMXMapOsmTileLoaderBEL.dproj"/>
+    </Target>
+    <Target Name="FMXMapOsmTileLoaderBEL:Clean">
+        <MSBuild Projects="Import\FMXMapOsmTileLoaderBEL.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="FMXMapOsmTileLoaderBEL:Make">
+        <MSBuild Projects="Import\FMXMapOsmTileLoaderBEL.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="FMXMapOsmDemo;FMXMapOsmTileImportToSQLite;FMXMapOsmTileLoaderBEL"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="FMXMapOsmDemo:Clean;FMXMapOsmTileImportToSQLite:Clean;FMXMapOsmTileLoaderBEL:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="FMXMapOsmDemo:Make;FMXMapOsmTileImportToSQLite:Make;FMXMapOsmTileLoaderBEL:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>

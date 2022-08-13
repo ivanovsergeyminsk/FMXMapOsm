@@ -1,0 +1,142 @@
+object VIewMain: TVIewMain
+  Left = 0
+  Top = 0
+  Caption = 'Form1'
+  ClientHeight = 456
+  ClientWidth = 624
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  OnCreate = FormCreate
+  OnDestroy = FormDestroy
+  DesignerMasterStyle = 0
+  object EditPath: TEdit
+    Touch.InteractiveGestures = [LongTap, DoubleTap]
+    TabOrder = 8
+    Position.X = 168.000000000000000000
+    Position.Y = 97.000000000000000000
+    Size.Width = 449.000000000000000000
+    Size.Height = 22.000000000000000000
+    Size.PlatformDefault = False
+    object EllipsesEditButton2: TEllipsesEditButton
+      CanFocus = False
+      Cursor = crArrow
+      Size.Width = 28.000000000000000000
+      Size.Height = 18.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 0
+      OnClick = EllipsesEditButton2Click
+    end
+  end
+  object Label3: TLabel
+    Position.X = 168.000000000000000000
+    Position.Y = 72.000000000000000000
+    Size.Width = 449.000000000000000000
+    Size.Height = 17.000000000000000000
+    Size.PlatformDefault = False
+    Text = 'Map path'
+    TabOrder = 5
+  end
+  object ButtonImport: TButton
+    Position.X = 8.000000000000000000
+    Position.Y = 72.000000000000000000
+    Size.Width = 137.000000000000000000
+    Size.Height = 45.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 0
+    Text = 'IMPORT'
+    OnClick = ButtonImportClick
+  end
+  object ComboBoxZoom: TComboBox
+    Items.Strings = (
+      'Zoom:  0'
+      'Zoom:  1'
+      'Zoom:  2'
+      'Zoom:  3'
+      'Zoom:  4'
+      'Zoom:  5'
+      'Zoom:  6'
+      'Zoom:  7'
+      'Zoom:  8'
+      'Zoom:  9'
+      'Zoom: 10'
+      'Zoom: 11'
+      'Zoom: 12'
+      'Zoom: 13'
+      'Zoom: 14'
+      'Zoom: 15'
+      'Zoom: 16'
+      'Zoom: 17'
+      'Zoom: 18'
+      'Zoom: 19'
+      'Zoom: 20')
+    ItemIndex = 7
+    Position.X = 8.000000000000000000
+    Position.Y = 33.000000000000000000
+    Size.Width = 137.000000000000000000
+    Size.Height = 22.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 1
+  end
+  object Label1: TLabel
+    Position.X = 8.000000000000000000
+    Position.Y = 8.000000000000000000
+    Size.Width = 137.000000000000000000
+    Size.Height = 17.000000000000000000
+    Size.PlatformDefault = False
+    Text = 'Zoom'
+    TabOrder = 2
+  end
+  object Label2: TLabel
+    Position.X = 168.000000000000000000
+    Position.Y = 8.000000000000000000
+    Size.Width = 449.000000000000000000
+    Size.Height = 17.000000000000000000
+    Size.PlatformDefault = False
+    Text = 'Source host'
+    TabOrder = 3
+  end
+  object ProgressBar1: TProgressBar
+    Orientation = Horizontal
+    Position.X = 8.000000000000000000
+    Position.Y = 132.000000000000000000
+    Size.Width = 609.000000000000000000
+    Size.Height = 20.000000000000000000
+    Size.PlatformDefault = False
+  end
+  object MemoLog: TMemo
+    Touch.InteractiveGestures = [Pan, LongTap, DoubleTap]
+    DataDetectorTypes = []
+    ReadOnly = True
+    Position.X = 8.000000000000000000
+    Position.Y = 200.000000000000000000
+    Size.Width = 609.000000000000000000
+    Size.Height = 248.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 7
+    Viewport.Width = 605.000000000000000000
+    Viewport.Height = 244.000000000000000000
+  end
+  object EditHost: TEdit
+    Touch.InteractiveGestures = [LongTap, DoubleTap]
+    TabOrder = 6
+    Position.X = 168.000000000000000000
+    Position.Y = 33.000000000000000000
+    Size.Width = 449.000000000000000000
+    Size.Height = 22.000000000000000000
+    Size.PlatformDefault = False
+  end
+  object SaveDialog: TSaveDialog
+    Filter = 'DB SQLite|*.sdb; *.db'
+    Left = 520
+    Top = 96
+  end
+  object ProgressBar2: TProgressBar
+    Orientation = Horizontal
+    Position.X = 8.000000000000000000
+    Position.Y = 160.000000000000000000
+    Size.Width = 609.000000000000000000
+    Size.Height = 20.000000000000000000
+    Size.PlatformDefault = False
+  end
+end
