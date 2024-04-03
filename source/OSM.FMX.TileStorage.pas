@@ -84,7 +84,7 @@ type
 
     procedure GetRemoveTiles(var ACurrentTiles, ANeedTiles, AResult: TArray<TTile>);
     procedure GetNeedTiles(AReq: TRequestUpdateCache; var AResult: TArray<TTile>);
-    procedure GetCurrentTiles(var AResult: TArray<TTile>);
+    procedure GetCurrentTiles(const ZoomLevel: TMapZoomLevel; var AResult: TArray<TTile>);
     function GetComparisonTile: IComparer<TTile>;
     function GetComparisonTileDraw: IComparer<TTile>;
 
@@ -327,14 +327,22 @@ begin
     end);
 end;
 
-procedure TTileStorage.GetCurrentTiles(var AResult: TArray<TTile>);
+procedure TTileStorage.GetCurrentTiles(const ZoomLevel: TMapZoomLevel; var AResult: TArray<TTile>);
 begin
+  var LResult: TArray<TTile>;
   FCacheMREW.BeginRead;
   try
-    AResult := FCache.Keys.ToArray;
+    LResult := FCache.Keys.ToArray;
   finally
     FCacheMREW.EndRead;
   end;
+
+  for var Tile in LResult do
+  begin
+    if Tile.Zoom = ZoomLevel then
+      AResult := AResult + [Tile];
+  end;
+
 end;
 
 procedure TTileStorage.GetNeedTiles(AReq: TRequestUpdateCache; var AResult: TArray<TTile>);
@@ -434,7 +442,7 @@ begin
       try
         var CurrentTiles, NeedTiles, RemoveTiles: TArray<TTile>;
 
-        GetCurrentTiles(CurrentTiles);
+        GetCurrentTiles(Req.Zoom, CurrentTiles);
         GetNeedTiles(Req, NeedTiles);
         GetRemoveTiles(CurrentTiles, NeedTiles, RemoveTiles);
 
