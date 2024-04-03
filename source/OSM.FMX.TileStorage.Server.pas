@@ -31,6 +31,9 @@ implementation
 uses
     System.SysUtils
   , System.Classes
+  {$IFDEF MSWINDOWS}
+  , Winapi.ActiveX
+  {$ENDIF}
   ;
 
 { TTileStorageSimpleServer }
@@ -72,12 +75,16 @@ begin
 
         //Анонимный метод не может захватит Bitmap, поэтому прибегаем к локальной переменной
         var LBitmap := Bitmap;
-        TThread.Synchronize(nil,
-        procedure
-        begin
-          //Не потокобезопасно - делаем через синхронизаци.
+        {$IFDEF MSWINDOWS}
+        CoInitialize(nil);
+        try
           LBitmap.LoadFromStream(MemStream);
-        end);
+        finally
+          CoUninitialize;
+        end;
+        {$ELSE}
+        LBitmap.LoadFromStream(MemStream);
+        {$ENDIF}
 
         result := true;
       end else begin
